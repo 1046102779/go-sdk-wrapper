@@ -5,12 +5,18 @@ Reduce business developers understanding of the dapr standardized API, and only 
 
 ### Dapr(go-sdk) and business adaptation layer (intermediate presentation layer)
 
-```
+#### serivce invocation
+
+```golang
 // RPC adapter.
 import adapter "github.com/1046102779/go-sdk-wrapper"
 s, err := adapter.NewService(logger.NewLogger("gateway.adapter"), ":8080")
 _ = s.RegisterRPC("/tool/flow", srv.QueryFlow)
+```
 
+#### pubsub.subscribe
+
+```golang
 // pubsub.sub adapter.
 import adapter "github.com/1046102779/go-sdk-wrapper"
 s, err := adapter.NewService(logger.NewLogger("gateway.adapter"), ":8080")
@@ -18,7 +24,10 @@ _ = s.RegisterSubscribe(&adapter.Subscription{
      PubsubName: "push",
      Topic: "gbot-wxwork-push-prod",
 }, srv.HandleMsg)
+```
 
+#### bindings.inputbinding
+```golang
 // bindings.inputbinding adapter.
 import adapter "github.com/1046102779/go-sdk-wrapper"
 s, err := adapter.NewService(logger.NewLogger("gateway.adapter"), ":8080")
@@ -26,6 +35,7 @@ _ = s.RegisterInput("/timer/cron", srv.HandleCron)
 ```
 
 ### MicroLogic Codes
+
 ```golang
 srv:=app.NewGatewayService(logger.NewLogger("gateway.robot"))
 
