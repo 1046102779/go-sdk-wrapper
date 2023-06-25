@@ -28,7 +28,7 @@ func newAdapterDaprAPI(log *logger.Logger) *adapterDaprAPI {
 	return &adapterDaprAPI{
 		log:          log,
 		decodeParser: protojson.UnmarshalOptions{DiscardUnknown: true},
-		encodeParser: protojson.MarshalOptions{},
+		encodeParser: protojson.MarshalOptions{UseEnumNumbers: true},
 		pbType:       reflect.TypeOf((*proto.Message)(nil)).Elem(),
 	}
 }
