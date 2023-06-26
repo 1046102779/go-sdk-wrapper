@@ -1,6 +1,6 @@
 ## go-sdk-wrapper
 
-Reduce business developers understanding of the dapr standardized API, and only focus on their own payload. Mask serialization and deserialization details.
+Reduce business developers understanding of the [dapr](https://dapr.io) standardized API, and only focus on their own payload. Mask serialization and deserialization details.
 
 
 ### Dapr(go-sdk) and business adaptation layer (intermediate presentation layer)
